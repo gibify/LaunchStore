@@ -1,5 +1,5 @@
 module.exports = {
   create(req, res) {
-    return res.render("/product/create.njk")
+    return res.render("products/create")
   }
 }
