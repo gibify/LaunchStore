@@ -1,4 +1,4 @@
-  <div class="item">
+<div class="item">
     <div>Categoria</div>
   <div>
     <select name="category_id">
@@ -11,6 +11,7 @@
       {% endfor %}
     </select>
   </div>
+</div>
 
   <div class="item">
     <div>Nome</div>
@@ -21,6 +22,7 @@
       value="{{ product.name }}">
     </div>
   </div>
+
   <div class="item">
     <div>Descrição</div>
     <div>
@@ -30,26 +32,53 @@
     </div>
   </div>
 
+{# campos de foto#}
+
+<div class="item">
+    <div>Valor</div>
+    <div>
+      <input type="text" 
+      name="price" 
+      placeholder="Preço do Produto" 
+      value="{{ product.price }}">
+    </div>
+    {% if product.old_price %}
+      <input type="hidden" name="old_price" value={{product.old_price}}>
+    {% endif %}
+  </div>
+
+<div class="item">
+    <div>Quantidade</div>
+    <div>
+      <input type="number" 
+      name="quantity" 
+      placeholder="Estoque Disponível" 
+      value="{{ product.quantity }}">
+    </div>
+   
+  </div>
+  {% if product.status%}
   <div class="item">
-        <div>Sexo</div>
+        <div>Disponível</div>
         <div>
             <span>
                 <input 
                 type="radio" 
-                name="gender" 
-                value="M" 
-                {% if member.gender == 'M' %}
+                name="status" 
+                value="1" 
+                {% if product.status == '1' %}
                 checked
-                {% endif %}> Masculino
+                {% endif %}> Sim
             </span>
             <span>
                 <input 
                     type="radio" 
-                    name="gender" 
-                    value="F" 
-                    {% if member.gender == 'F' %}
+                    name="status" 
+                    value="0" 
+                    {% if product.status == '0' %}
                 checked
-                {% endif %}> Feminino
+                {% endif %}> Não
             </span>
         </div>
     </div>
+    {% endif %}
