@@ -185,3 +185,10 @@ form .item span {
   text-transform: uppercase;
   font-size: 12px;
 }
+
+/* PHOTOS UPLOAD */
+form .item #photos-upload {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
